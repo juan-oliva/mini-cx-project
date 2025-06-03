@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 
 function FeedbackList() {
   const [feedbacks, setFeedbacks] = useState([]);
+  const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/feedback")
+    fetch(`${API}/feedback`)
       .then((res) => res.json())
       .then((data) => setFeedbacks(data));
   }, []);
