@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
-CORS(app, resources={r"/feedback*": {"origins": "https://mini-cx-project.vercel.app"}})
+CORS(app, resources={r"/feedback*": {"origins": ["http://localhost:5173", "https://mini-cx-project.vercel.app"]}})
 db.init_app(app)
 
 with app.app_context():
