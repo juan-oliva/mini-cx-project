@@ -3,10 +3,11 @@ import React, { useState } from "react";
 function FeedbackForm() {
   const [rating, setRating] = useState("");
   const [comment, setComment] = useState("");
+  const API = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("http://127.0.0.1:5000/feedback", {
+    await fetch(`${API}/feedback`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ rating, comment }),
